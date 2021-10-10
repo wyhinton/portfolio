@@ -32,10 +32,6 @@ body {
   background-color: #121212;
 }
 
-/* div {
-  display: flex;
-} */
-
 .App {
   display: block;
   flex-direction: co;

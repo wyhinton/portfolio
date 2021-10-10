@@ -9,4 +9,5 @@
   height: 20px;
   width: 20px;
   padding-left: 0.25em;
+  filter: invert(100%);
 }

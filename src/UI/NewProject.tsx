@@ -5,6 +5,7 @@ import React, { FC, useEffect, useRef, useState } from "react";
 
 import Collapsible from "react-collapsible";
 import { ContentType } from "../enums";
+import ModelViewer from "./ModelViewer";
 import { ProjectAsset } from "../interfaces/ProjectAsset";
 import ProjectData from "../classes/ProjectData";
 import ReactPlayer from "react-player";
@@ -123,7 +124,7 @@ const getAsset = (asset: ProjectAsset, projectOpen: boolean): JSX.Element => {
         videoWidth = "1920px";
       }
       if (asset.src.includes("Eager_Rhizome_Lettering")) {
-        videoWidth = "100%";
+        videoWidth = "1000px";
       }
       assetElement = (
         <ReactPlayer
@@ -140,6 +141,11 @@ const getAsset = (asset: ProjectAsset, projectOpen: boolean): JSX.Element => {
           hello
         </ReactPlayer>
       );
+      break;
+    case ContentType.MODEL:
+      const modelPath =
+        "https://raw.githubusercontent.com/wyhinton/portfolio/main/public/Eager_Rhizome_Model/scene.gltf";
+      assetElement = <ModelViewer src={modelPath}></ModelViewer>;
       break;
     default:
       assetElement = <div>hello</div>;

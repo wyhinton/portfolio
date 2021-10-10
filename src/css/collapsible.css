@@ -24,17 +24,7 @@
 /*  */
 
 h1 {
-  /* you can change these variables to control the border */
-  --border-color: purple;
-  --border-width: 5px;
-  --bottom-distance: 0px; /* you can increase this */
-
-  color: #666;
-  display: inline; /* should be 'inline' for multiple line animation */
-  background-image: linear-gradient(var(--border-color), var(--border-color));
-  background-size: 0% var(--border-width);
-  background-repeat: no-repeat;
-  transition: background-size 0.5s;
+  color: white;
 }
 
 .fromLeft {

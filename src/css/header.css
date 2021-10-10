@@ -1,0 +1,12 @@
+.header-container {
+  display: flex;
+}
+.social-header-container {
+  display: flex;
+}
+
+.social-icon {
+  height: 20px;
+  width: 20px;
+  padding-left: 0.25em;
+}

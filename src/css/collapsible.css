@@ -1,0 +1,46 @@
+.is-closed:hover {
+  background-color: grey;
+  background-image: linear-gradient(var(--border-color), var(--border-color));
+  background-size: 0% var(--border-width);
+  background-repeat: no-repeat;
+  transform: scale(1.5);
+  transition: background-size 0.5s;
+}
+
+.is-closed {
+  color: white;
+  transition: color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.is-open {
+  border-bottom: 1px solid white;
+  color: var(--accent-color);
+  transition: color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.Collapsible__trigger {
+  font-size: 4em;
+}
+/*  */
+
+h1 {
+  /* you can change these variables to control the border */
+  --border-color: purple;
+  --border-width: 5px;
+  --bottom-distance: 0px; /* you can increase this */
+
+  color: #666;
+  display: inline; /* should be 'inline' for multiple line animation */
+  background-image: linear-gradient(var(--border-color), var(--border-color));
+  background-size: 0% var(--border-width);
+  background-repeat: no-repeat;
+  transition: background-size 0.5s;
+}
+
+.fromLeft {
+  background-position: 0 calc(100% - var(--bottom-distance));
+}
+
+h1:hover {
+  background-size: 100% var(--border-width);
+}

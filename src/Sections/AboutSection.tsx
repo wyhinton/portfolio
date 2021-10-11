@@ -7,8 +7,8 @@ const AboutSection = (): JSX.Element => {
     <div style={containerStyle}>
       <h1>
         Webb Hinton is a software developer and multimedia designer based in
-        Raleigh, NC. There interested in creating accessible tools which empower
-        creatives, experimental digital arts, and digital humanities.
+        Raleigh, NC. They are interested in creating accessible tools which empower
+        creatives, creating experimental digital art, and digital humanities.
       </h1>
     </div>
   );

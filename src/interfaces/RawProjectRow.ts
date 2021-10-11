@@ -4,5 +4,7 @@ export default interface RawProjectRow {
   tags: string;
   category: string;
   description: string;
-  [key: string]: string;
+  hide: boolean;
+  link: string;
+  // [key: string]: string;
 }

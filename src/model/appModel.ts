@@ -35,24 +35,23 @@ const appModel: AppDataModel = {
     state.playProjects = playProjectsDataArray;
   }),
   fetchAppGoogleSheet: thunk(async (actions) => {
-    const getCardDataResponse = parseData("Projects", ProjectSheetKey).then(
-      (result) => {
-        console.log(result);
-        const rows = result.rows as RawProjectRow[];
-        const finalRows = rows.map((r) => new ProjectData(r));
-        const workProjects = finalRows.filter((row) => row.category === "WORK");
-        const playProjects = finalRows.filter((row) => row.category === "PLAY");
-        // const playProjects = finalRows.filter((row) => {
-        //   console.log(row.category);
-        // });
-        console.log(finalRows);
-        console.log(workProjects);
-        console.log(playProjects);
-        actions.setProjectSheet(finalRows);
-        actions.setPlayProjects(playProjects);
-        actions.setWorkProjects(workProjects);
-      }
-    );
+    parseData("Projects", ProjectSheetKey).then((result) => {
+      console.log(result);
+      const rows = result.rows as RawProjectRow[];
+      const finalRows = rows.map((r) => new ProjectData(r));
+      const workProjects = finalRows.filter(
+        (row) => row.category === "WORK" && !row.hide
+      );
+      const playProjects = finalRows.filter(
+        (row) => row.category === "PLAY" && !row.hide
+      );
+      // const playProjects = finalRows.filter((row) => {
+      console.log(workProjects);
+      console.log(playProjects);
+      actions.setProjectSheet(finalRows);
+      actions.setPlayProjects(playProjects);
+      actions.setWorkProjects(workProjects);
+    });
   }),
 };
 

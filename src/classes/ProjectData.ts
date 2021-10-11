@@ -1,5 +1,5 @@
 import { ContentType } from "../enums";
-import { ProjectAsset } from "../interfaces/ProjectAsset";
+import { ProjectAssetData } from "../interfaces/ProjectAssetData";
 import RawProjectRow from "../interfaces/RawProjectRow";
 
 export default class ProjectData {
@@ -8,23 +8,28 @@ export default class ProjectData {
   readonly date: Date;
   readonly tags: string[];
   readonly description: string;
-  readonly assets: ProjectAsset[];
-  readonly link: string | undefined;
+  readonly assets: ProjectAssetData[];
+  readonly link: string;
+  readonly hide: boolean;
 
   constructor(row: RawProjectRow) {
+    console.log(row.hide);
     this.title = row.title;
     this.date = new Date(row.date);
     this.tags = row.tags.split(",");
     this.category = row.category;
     this.description = row.description;
     this.assets = makeAssets(row);
+    this.hide = row.hide;
+    this.link = row.link;
   }
 }
 
-function makeAssets(row: RawProjectRow): ProjectAsset[] {
-  let assetSourceArray: string[][] = [];
-  let assetTypeArray: string[][] = [];
-  let assetLinkArray: string[][] = [];
+function makeAssets(row: RawProjectRow): ProjectAssetData[] {
+  const assetSourceArray: string[][] = [];
+  const assetTypeArray: string[][] = [];
+  const assetLinkArray: string[][] = [];
+  const captionLinkArray: string[][] = [];
 
   for (const [k, v] of Object.entries(row)) {
     if (k.includes("asset") && v !== "NA") {
@@ -34,19 +39,20 @@ function makeAssets(row: RawProjectRow): ProjectAsset[] {
     if (k.includes("Type") && v !== "NA") {
       assetTypeArray.push([k, v]);
     }
-    if (k.includes("Link")) {
-      assetLinkArray.push([k, v]);
+
+    if (k.includes("Caption")) {
+      captionLinkArray.push([k, v]);
     }
   }
-  const finalassets: ProjectAsset[] = assetSourceArray.map((source, i) => {
+  const finalassets: ProjectAssetData[] = assetSourceArray.map((source, i) => {
     const src = generateUrl(source[1]);
     const kind = ContentType[assetTypeArray[i][1] as keyof typeof ContentType];
-    const link =
-      assetLinkArray[i][1] === "NA" ? undefined : assetLinkArray[i][1];
+    const caption = captionLinkArray[i][1];
+
     const asset = {
       src: src,
       kind: kind,
-      link: link,
+      caption: caption,
     };
     return asset;
   });

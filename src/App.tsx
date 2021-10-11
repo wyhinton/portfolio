@@ -41,7 +41,12 @@ function App() {
         <TabPanel>
           <AboutSection />
         </TabPanel>
-        <TabPanel>CONTACT</TabPanel>
+        <TabPanel>
+          <img
+            style={{ filter: "invert(100%)" }}
+            src={`${process.env.PUBLIC_URL}/e.png`}
+          />
+        </TabPanel>
         {/* </Grid> */}
       </Tabs>
     </div>

@@ -1,65 +1,63 @@
+/* TYPOGRAPHY */
 @font-face {
   font-family: "Satoshi-Regular";
   src: local("Satoshi-Regular"),
     url(./fonts/Satoshi-Regular.woff) format("woff");
 }
 
+/* TAGS */
 :root {
   --accent-color: #eb7700;
+  --nav-text-size: 4vw;
+  --font-color: white;
+  --background-color: #121212;
 }
 
 html * {
   font-family: Satoshi-Regular;
-  color: white;
+  color: var(--font-color);
+}
+
+body {
+  padding: 3em;
+  background-color: var(--background-color);
+}
+
+img {
+  width: auto;
+  height: 100%;
+}
+
+caption {
+  color: var(--font-color);
+  font-style: italic;
+}
+
+/* UTILITIES */
+.inverted {
+  filter: invert(100%);
 }
 
 .flex-box {
   display: flex;
 }
-/* div {
+
+.flex-column {
   display: flex;
-} */
-
-img {
-  width: auto;
-  height: auto;
-  /* max-width: 100%; */
-  /* max-height: 100%; */
+  flex-direction: column;
+  max-height: 70vh;
 }
 
-body {
-  padding: 3em;
-  background-color: #121212;
-}
-
-.App {
-  display: block;
-  flex-direction: co;
-}
-
+/* REACT-TABS */
 .tab-pane.active {
   animation-name: fadeIn;
   animation-duration: 300ms;
   animation-timing-function: linear;
 }
-/* .react-tabs__tab--selected {
-  animation-name: fadeIn;
-  animation-duration: 300ms;
-  animation-timing-function: linear;
-} */
 .react-tabs__tab-panel--selected {
   animation-name: fadeIn;
   animation-duration: 300ms;
   animation-timing-function: linear;
-}
-/* } */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .header-tab {
@@ -69,15 +67,15 @@ body {
   list-style: none;
   margin-left: 2em;
   cursor: pointer;
-  font-size: 4em;
+  font-size: var(--nav-text-size);
 }
 
 .header-tab--selected {
-  font-size: 4em;
+  font-size: var(--nav-text-size);
 }
 
 .react-tabs__tab--selected {
-  font-size: 4em !important;
+  font-size: var(--nav-text-size) !important;
   color: white !important;
   background-color: #aaa0 !important;
   border-bottom: 1px solid white !important;
@@ -91,4 +89,14 @@ body {
   margin-bottom: auto;
   padding-left: 3em;
   margin: auto !important;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

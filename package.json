@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@types/papaparse": "^5.2.6",
+    "@types/react-tabs": "^2.3.3",
     "eslint-config-xo-react": "^0.25.0",
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-import": "^2.23.4",

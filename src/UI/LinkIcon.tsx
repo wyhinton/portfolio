@@ -48,7 +48,20 @@ const LinkIcon = ({ href }: { href: string }): JSX.Element => {
     //     toggleIsHovered();
     //   }}
     // >
-      <a href={href} target="_blank">
+      <a href={href} target="_blank"
+            onClick={(e) => {
+        window.open(href, "_blank");
+        setVisited(true);
+        e.stopPropagation();
+      }}
+      onMouseEnter={() => {
+        toggleIsHovered();
+      }}
+      onMouseLeave={() => {
+        toggleIsHovered();
+      }}
+      
+      >
         {/* {isHovered ? normalSvg() : hoverSvg()} */}
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -2,30 +2,78 @@ import "./css/App.css";
 import "./css/global.css";
 import "react-tabs/style/react-tabs.css";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { useStoreActions, useStoreState, useToggle } from "./hooks";
 
 import AboutSection from "./Sections/AboutSection";
 import Header from "./UI/Header";
 import PlayProjectsSection from "./Sections/PlayProjectsSection";
+import ProjectData from "./classes/ProjectData";
 import WorkProjectsSection from "./Sections/WorkProjectsSection";
-import { useStoreActions } from "./hooks";
 
 const App = () => {
   const fetchCardDataGoogleSheetThunk = useStoreActions(
     (actions) => actions.appModel.fetchAppGoogleSheet
   );
+
+  const workProjectsState = useStoreState(
+    (state) => state.appModel.workProjects
+  );
+  const playProjectsState = useStoreState(
+    (state) => state.appModel.playProjects
+  );
+
   useEffect(() => {
     fetchCardDataGoogleSheetThunk();
   }, [fetchCardDataGoogleSheetThunk]);
 
+  const [activeProject, setActiveProject] = useState<ProjectData | undefined>(
+    undefined
+  );
+  const [projectSelection, setProjectSelection] = useState<"WORK" | "PLAY">(
+    "WORK"
+  );
+  const [viewableProject, setViewableProject] = useState<ProjectData[]>([]);
+  useEffect(() => {
+    if (projectSelection === "WORK") {
+      setViewableProject(workProjectsState);
+    }
+    if (projectSelection === "PLAY") {
+      setViewableProject(playProjectsState);
+    }
+  }, [activeProject, workProjectsState]);
+
+  const [showNav, setShowNav] = useState(true);
+
+  useEffect(() => {
+    if (activeProject) {
+      setShowNav(false);
+    } else {
+      setShowNav(true);
+    }
+  }, [activeProject]);
+
   return (
     <div className="app">
-      <Tabs>
+      <Tabs
+        onSelect={(index) => {
+          console.log(index);
+          if (index == 0) {
+            setProjectSelection("WORK");
+          }
+          if (index == 1) {
+            setProjectSelection("PLAY");
+          }
+        }}
+      >
         <div className={"body-container"}>
           {/* <Grid container spacing={0}> */}
           <div className={"nav-section-container"}>
-            <Header>
+            <Header
+              project={activeProject}
+              onClosePress={() => setActiveProject(undefined)}
+            >
               <TabList>
                 <Tab className={"header-tab"}>Work</Tab>
                 <Tab className={"header-tab"}>Play</Tab>
@@ -37,10 +85,30 @@ const App = () => {
           <hr />
           <div className={"content-section-container"}>
             <TabPanel>
-              <WorkProjectsSection />
+              <WorkProjectsSection
+                projects={viewableProject}
+                onProjectClick={(project) => {
+                  if (project.title === activeProject?.title) {
+                    setActiveProject(undefined);
+                  } else {
+                    setActiveProject(project);
+                  }
+                }}
+                displayProject={activeProject}
+              />
             </TabPanel>
             <TabPanel>
-              <PlayProjectsSection />
+              <WorkProjectsSection
+                projects={viewableProject}
+                onProjectClick={(project) => {
+                  if (project.title === activeProject?.title) {
+                    setActiveProject(undefined);
+                  } else {
+                    setActiveProject(project);
+                  }
+                }}
+                displayProject={activeProject}
+              />
             </TabPanel>
             <TabPanel>
               <AboutSection />

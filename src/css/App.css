@@ -16,17 +16,17 @@
 .body-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  grid-column-gap: 15px;
+  grid-template-rows: repeat(24, 1fr);
+  grid-column-gap: 0px;
   grid-row-gap: 0px;
   height: 100%;
 }
 
 .nav-section-container {
-  grid-area: 1 / 1 / 2 / 13;
+  grid-area: 1 / 1 / 4 / 13;
 }
 .content-section-container {
-  grid-area: 2 / 1 / 13 / 13;
+  grid-area: 4 / 1 / 25 / 13;
 }
 
 /* UTILITIES */
@@ -65,27 +65,31 @@
   margin-left: 2em;
   cursor: pointer;
   font-size: var(--header-nav-size);
+  /* -webkit-text-stroke-width: 1px; */
+  /* -webkit-text-stroke-color: var(--font-color); */
 }
 
 .header-tab--selected {
   font-size: var(--header-nav-size);
+  color: var(--accent-color);
 }
 
 .react-tabs__tab--selected {
   font-size: var(--header-nav-size);
-  color: white !important;
+  color: var(--accent-color) !important;
   background-color: #aaa0 !important;
-  border-bottom: 1px solid white !important;
+  /* border-bottom: 1px solid white !important; */
 }
 .react-tabs__tab--selected {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
 }
 .react-tabs__tab-list {
   border-bottom: none !important;
   margin-top: 39px;
   margin-bottom: auto;
   padding-left: 3em;
-  margin: auto !important;
+  margin: 0 !important;
+  margin-left: auto !important;
 }
 
 /* ANIMATIONS */
@@ -95,5 +99,28 @@
   }
   to {
     opacity: 1;
+  }
+}
+/* 
+.nav-item-hide {
+  animation-name: slideUp;
+  animation-duration: 300ms;
+  animation-timing-function: linear;
+} */
+
+@keyframes slideUp {
+  from {
+    clip-path: inset(0vw 0vw 0vw 0);
+  }
+  to {
+    clip-path: inset(0vw 0vw var(--clip-height) 0vw);
+  }
+}
+@keyframes slideIn {
+  from {
+    clip-path: inset(var(--clip-height) 0vw 0vw 0vw);
+  }
+  to {
+    clip-path: inset(0vw 0vw 0vw 0vw);
   }
 }

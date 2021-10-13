@@ -12,11 +12,15 @@
 
 /* TAGS */
 :root {
-  --accent-color: #eb7700;
+  --accent-color: blue;
   --nav-text-size: 3.5vw;
   --font-color: white;
   --background-color: #121212;
-  --header-nav-size: max(var(--nav-text-size), 2vw);
+  /* --header-nav-size: clamp(var(--nav-text-size), 10vw); */
+  /* --header-nav-size: clamp(3em, calc(9 / 80 * 100vw), 4em); */
+  --header-nav-size: clamp(1.1rem, 1.7153rem + 1.6368vw, 5.5rem);
+  --transition-time: 300ms;
+  --clip-height: 7vw;
 }
 
 html * {

@@ -6,8 +6,19 @@
   flex-direction: column;
 }
 
-.project-title{
+.project-title {
   display: flow-root;
+  font-size: var(--header-nav-size);
+}
+
+.nav-section {
+  position: relative;
+}
+
+.nav-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
 }
 
 .asset-container {
@@ -25,6 +36,25 @@
   color: white;
   font-size: max(1vw, 12pt);
   max-width: 75rem;
+}
+
+.scroll-container {
+  display: flex;
+}
+
+.scroll-horizontal {
+  overflow: visible !important;
+}
+
+.description-container {
+  width: 83ch;
+  background: linear-gradient(
+    90deg,
+    rgba(18, 18, 18, 1) 35%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 1;
+  /* pointer-events: none; */
 }
 
 .hidden {

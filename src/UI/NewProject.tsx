@@ -9,6 +9,8 @@ import ProjectAsset from "./ProjectAsset";
 import ProjectData from "../classes/ProjectData";
 import ScrollHorizontal from "react-scroll-horizontal";
 import classNames from "classnames";
+import Caption from './Caption';
+
 
 const NewProject = ({
   projectData,
@@ -53,6 +55,7 @@ const NewProject = ({
       >
         <div className={contentWrapperClass}>
           <p>{description}</p>
+
           <ScrollHorizontal>
             <div className={"assets-array-container"}>
               {assets.map((asset, i) => {
@@ -83,7 +86,7 @@ const ProjectTitle = ({
   link: string;
 }): JSX.Element => {
   return (
-    <div className={"flex-box"}>
+    <div className={"project-title"}>
       {title}
       {link !== "NA" ? <LinkIcon href={link}></LinkIcon> : <></>}
     </div>

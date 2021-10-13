@@ -8,6 +8,8 @@ import React from "react";
 import ReactPlayer from "react-player";
 import SmoothImage from "./SmoothImage";
 
+import Caption from "./Caption"
+
 const ProjectAsset = ({
   projectAsset,
   projectOpen,
@@ -32,7 +34,8 @@ const ProjectAsset = ({
         className="flex-column asset-container fade-in"
         style={projectOpen ? fadeInStyle : { opacity: 0 }}
       >
-        <caption>{caption}</caption>
+        {/* <caption>{caption}</caption> */}
+        <Caption text ={caption} />
         {getAsset(projectAsset, projectOpen)}
       </div>
     </>

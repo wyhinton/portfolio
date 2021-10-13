@@ -8,7 +8,6 @@ const PlayProjectsSection = (): JSX.Element => {
   const workProjectsState = useStoreState(
     (state) => state.appModel.playProjects
   );
-
   return (
     <div>
       {workProjectsState.map((projectData, i) => {

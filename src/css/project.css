@@ -6,6 +6,10 @@
   flex-direction: column;
 }
 
+.project-title{
+  display: flow-root;
+}
+
 .asset-container {
   padding-right: 1em;
 }

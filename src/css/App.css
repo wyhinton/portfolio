@@ -4,13 +4,20 @@
   src: local("Satoshi-Regular"),
     url(./fonts/Satoshi-Regular.woff) format("woff");
 }
+@font-face {
+  font-family: "VCR_OSD_MONO";
+  src: local("VCR_OSD_MONO"),
+    url(./fonts/VCR_OSD_MONO_1.001.ttf) format("truetype");
+}
+
 
 /* TAGS */
 :root {
   --accent-color: #eb7700;
-  --nav-text-size: 4vw;
+  --nav-text-size: 3.5vw;
   --font-color: white;
   --background-color: #121212;
+  --header-nav-size: max(var(--nav-text-size), 2vw);
 }
 
 html * {
@@ -67,15 +74,15 @@ caption {
   list-style: none;
   margin-left: 2em;
   cursor: pointer;
-  font-size: var(--nav-text-size);
+  font-size: var(--header-nav-size);
 }
 
 .header-tab--selected {
-  font-size: var(--nav-text-size);
+  font-size: var(--header-nav-size);
 }
 
 .react-tabs__tab--selected {
-  font-size: var(--nav-text-size) !important;
+  font-size: var(--header-nav-size);
   color: white !important;
   background-color: #aaa0 !important;
   border-bottom: 1px solid white !important;

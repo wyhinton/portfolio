@@ -9,9 +9,11 @@ const LinkIcon = ({ href }: { href: string }): JSX.Element => {
   const [visited, setVisited] = useState(false);
   const LinkStyle = {
     width: "fit-content",
-    height: "2vw",
-    marginTop: 28,
+    height: "max(30px, 2.5vw)",
+    // marginTop: 28,
     fill: visited ? "purple" : "blue",
+    position: "absolute",
+    bottom: "12%",
   } as React.CSSProperties;
   const [isHovered, toggleIsHovered] = useToggle(false);
 
@@ -33,19 +35,19 @@ const LinkIcon = ({ href }: { href: string }): JSX.Element => {
   };
 
   return (
-    <div
-      onClick={(e) => {
-        window.open(href, "_blank");
-        setVisited(true);
-        e.stopPropagation();
-      }}
-      onMouseEnter={() => {
-        toggleIsHovered();
-      }}
-      onMouseLeave={() => {
-        toggleIsHovered();
-      }}
-    >
+    // <div
+    //   onClick={(e) => {
+    //     window.open(href, "_blank");
+    //     setVisited(true);
+    //     e.stopPropagation();
+    //   }}
+    //   onMouseEnter={() => {
+    //     toggleIsHovered();
+    //   }}
+    //   onMouseLeave={() => {
+    //     toggleIsHovered();
+    //   }}
+    // >
       <a href={href} target="_blank">
         {/* {isHovered ? normalSvg() : hoverSvg()} */}
         <svg
@@ -58,7 +60,7 @@ const LinkIcon = ({ href }: { href: string }): JSX.Element => {
           <path d="M7.28 11.153a3.936 3.936 0 015.88.353.75.75 0 001.18-.928 5.436 5.436 0 00-8.12-.486L2.592 13.72a5.436 5.436 0 107.688 7.688l3-3a.75.75 0 10-1.06-1.06l-3 3a3.936 3.936 0 01-5.567-5.568l3.627-3.627z" />
         </svg>
       </a>
-    </div>
+    // </div>
   );
 };
 

@@ -3,21 +3,21 @@ import "../css/collapsible.css";
 
 import React, { useState } from "react";
 
+import Caption from "./Caption";
 import Collapsible from "react-collapsible";
 import LinkIcon from "./LinkIcon";
 import ProjectAsset from "./ProjectAsset";
 import ProjectData from "../classes/ProjectData";
-import ScrollHorizontal from "react-scroll-horizontal";
 import classNames from "classnames";
-import Caption from './Caption';
-
 
 const NewProject = ({
   projectData,
   index,
+  onClick,
 }: {
   projectData: ProjectData;
   index: number;
+  onClick: (projectTitle: string) => void;
 }): JSX.Element => {
   const { title, description, date, tags, assets, link } = projectData;
   const [isOpen, setIsOpen] = useState(false);
@@ -39,6 +39,7 @@ const NewProject = ({
           index * 0.2
         }s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
       }}
+      onClick={(e) => onClick(title)}
     >
       <Collapsible
         transitionTime={200}
@@ -53,7 +54,7 @@ const NewProject = ({
           setIsOpen(false);
         }}
       >
-        <div className={contentWrapperClass}>
+        {/* <div className={contentWrapperClass}>
           <p>{description}</p>
 
           <ScrollHorizontal>
@@ -70,7 +71,7 @@ const NewProject = ({
               })}
             </div>
           </ScrollHorizontal>
-        </div>
+        </div> */}
       </Collapsible>
     </div>
   );

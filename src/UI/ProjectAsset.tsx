@@ -1,14 +1,13 @@
 import "../css/project.css";
 import "../css/collapsible.css";
 
+import Caption from "./Caption";
 import { ContentType } from "../enums";
 import ModelViewer from "./ModelViewer";
 import { ProjectAssetData } from "../interfaces/ProjectAssetData";
 import React from "react";
 import ReactPlayer from "react-player";
 import SmoothImage from "./SmoothImage";
-
-import Caption from "./Caption"
 
 const ProjectAsset = ({
   projectAsset,
@@ -35,7 +34,7 @@ const ProjectAsset = ({
         style={projectOpen ? fadeInStyle : { opacity: 0 }}
       >
         {/* <caption>{caption}</caption> */}
-        <Caption text ={caption} />
+        <Caption text={caption} />
         {getAsset(projectAsset, projectOpen)}
       </div>
     </>

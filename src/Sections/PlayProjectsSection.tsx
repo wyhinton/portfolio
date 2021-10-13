@@ -10,9 +10,9 @@ const PlayProjectsSection = (): JSX.Element => {
   );
   return (
     <div>
-      {workProjectsState.map((projectData, i) => {
+      {/* {workProjectsState.map((projectData, i) => {
         return <NewProject projectData={projectData} index={i}></NewProject>;
-      })}
+      })} */}
     </div>
   );
 };

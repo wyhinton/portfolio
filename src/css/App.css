@@ -1,43 +1,32 @@
-/* TYPOGRAPHY */
-@font-face {
-  font-family: "Satoshi-Regular";
-  src: local("Satoshi-Regular"),
-    url(./fonts/Satoshi-Regular.woff) format("woff");
-}
-@font-face {
-  font-family: "VCR_OSD_MONO";
-  src: local("VCR_OSD_MONO"),
-    url(./fonts/VCR_OSD_MONO_1.001.ttf) format("truetype");
-}
-
-
-/* TAGS */
-:root {
-  --accent-color: #eb7700;
-  --nav-text-size: 3.5vw;
-  --font-color: white;
-  --background-color: #121212;
-  --header-nav-size: max(var(--nav-text-size), 2vw);
-}
-
-html * {
-  font-family: Satoshi-Regular;
-  color: var(--font-color);
-}
-
-body {
+#root {
   padding: 3em;
-  background-color: var(--background-color);
+  height: 100%;
+  /* display: grid; */
+  /* grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 0px; */
 }
-
-img {
-  width: auto;
+.app {
+  height: 100%;
+}
+.react-tabs {
+  height: 100%;
+}
+.body-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 0px;
   height: 100%;
 }
 
-caption {
-  color: var(--font-color);
-  font-style: italic;
+.nav-section-container {
+  grid-area: 1 / 1 / 2 / 13;
+}
+.content-section-container {
+  grid-area: 2 / 1 / 13 / 13;
 }
 
 /* UTILITIES */
@@ -65,6 +54,7 @@ caption {
   animation-name: fadeIn;
   animation-duration: 300ms;
   animation-timing-function: linear;
+  height: 100%;
 }
 
 .header-tab {

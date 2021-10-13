@@ -1,0 +1,42 @@
+/* TYPOGRAPHY */
+@font-face {
+  font-family: "Satoshi-Regular";
+  src: local("Satoshi-Regular"),
+    url(./fonts/Satoshi-Regular.woff) format("woff");
+}
+@font-face {
+  font-family: "VCR_OSD_MONO";
+  src: local("VCR_OSD_MONO"),
+    url(./fonts/VCR_OSD_MONO_1.001.ttf) format("truetype");
+}
+
+/* TAGS */
+:root {
+  --accent-color: #eb7700;
+  --nav-text-size: 3.5vw;
+  --font-color: white;
+  --background-color: #121212;
+  --header-nav-size: max(var(--nav-text-size), 2vw);
+}
+
+html * {
+  font-family: Satoshi-Regular;
+  color: var(--font-color);
+  box-sizing: border-box;
+}
+
+body {
+  /* padding: 3em; */
+  background-color: var(--background-color);
+  height: 100vh;
+  overflow: hidden;
+}
+img {
+  width: auto;
+  height: 100%;
+}
+
+caption {
+  color: var(--font-color);
+  font-style: italic;
+}

@@ -101,6 +101,16 @@
     opacity: 1;
   }
 }
+
+.email-image {
+  width: min-content;
+  height: min-content;
+}
+
+.about-container {
+  max-width: 100ch;
+}
+
 /* 
 .nav-item-hide {
   animation-name: slideUp;

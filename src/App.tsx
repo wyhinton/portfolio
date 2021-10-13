@@ -28,21 +28,16 @@ const App = () => {
     fetchCardDataGoogleSheetThunk();
   }, [fetchCardDataGoogleSheetThunk]);
 
+  useEffect(() => {
+    // console.log(dep);
+    setViewableProject(workProjectsState);
+  }, [workProjectsState]);
+
   const [activeProject, setActiveProject] = useState<ProjectData | undefined>(
     undefined
   );
-  const [projectSelection, setProjectSelection] = useState<"WORK" | "PLAY">(
-    "WORK"
-  );
+
   const [viewableProject, setViewableProject] = useState<ProjectData[]>([]);
-  useEffect(() => {
-    if (projectSelection === "WORK") {
-      setViewableProject(workProjectsState);
-    }
-    if (projectSelection === "PLAY") {
-      setViewableProject(playProjectsState);
-    }
-  }, [activeProject, workProjectsState]);
 
   const [showNav, setShowNav] = useState(true);
 
@@ -60,10 +55,10 @@ const App = () => {
         onSelect={(index) => {
           console.log(index);
           if (index == 0) {
-            setProjectSelection("WORK");
+            setViewableProject(workProjectsState);
           }
           if (index == 1) {
-            setProjectSelection("PLAY");
+            setViewableProject(playProjectsState);
           }
         }}
       >
@@ -115,6 +110,7 @@ const App = () => {
             </TabPanel>
             <TabPanel>
               <img
+                className={"email-image"}
                 style={{ filter: "invert(100%)" }}
                 src={`${process.env.PUBLIC_URL}/e.png`}
               />

@@ -65,7 +65,7 @@ const ProjectTitle = ({
   return (
     <div className={"project-title"}>
       {title}
-      {link !== "NA" ? <LinkIcon href={link}></LinkIcon> : <></>}
+      {/* {link !== "NA" ? <LinkIcon href={link}></LinkIcon> : <></>} */}
     </div>
   );
 };

@@ -3,6 +3,7 @@ import "../css/header.css";
 import React, { FC, useEffect, useState } from "react";
 
 import LeftArrowIcon from "./LeftArrowIcon";
+import LinkIcon from "./LinkIcon";
 import ProjectData from "../classes/ProjectData";
 import classNames from "classnames";
 
@@ -90,6 +91,7 @@ const ProjectHeader = ({
         <LeftArrowIcon />
       </div>
       {projectData.title}
+      {projectData.link ? <LinkIcon href={projectData.link} /> : <></>}
     </div>
   );
 };

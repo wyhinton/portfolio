@@ -65,7 +65,7 @@ const WorkProjectsSection = (): JSX.Element => {
         <div className="viewer-container">
           {projectA?.assets ? (
             <ProjectViewer
-              assets={projectA.assets}
+              projectData={projectA}
               active={!aActive}
               title={"A"}
             />
@@ -74,7 +74,7 @@ const WorkProjectsSection = (): JSX.Element => {
           )}
           {projectB?.assets ? (
             <ProjectViewer
-              assets={projectB.assets}
+              projectData={projectB}
               active={aActive}
               title={"B"}
             />
@@ -90,11 +90,12 @@ const WorkProjectsSection = (): JSX.Element => {
 export default WorkProjectsSection;
 
 const ProjectViewer = ({
-  assets,
+  // assets,
+  projectData,
   active,
   title,
 }: {
-  assets: ProjectAssetData[];
+  projectData: ProjectData;
   active: boolean;
   title?: string;
 }): JSX.Element => {
@@ -102,12 +103,16 @@ const ProjectViewer = ({
     "scroll-container-hidden": !active,
     "scroll-container-display": active,
   });
+  const { assets, description } = projectData;
   // const [isActive, setisActive] = useState(initialState)
   return (
     <div className={containerClass}>
       {title ?? ""}
       <ScrollHorizontal animValues={active ? 0 : -100}>
         <div className={"assets-array-container"}>
+          <div>
+            <h2>{description}</h2>
+          </div>
           {assets ? (
             assets.map((asset, i) => {
               return (

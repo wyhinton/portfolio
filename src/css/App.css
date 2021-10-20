@@ -111,12 +111,11 @@
   max-width: 100ch;
 }
 
-/* 
 .nav-item-hide {
-  animation-name: slideUp;
-  animation-duration: 300ms;
-  animation-timing-function: linear;
-} */
+  /* animation-name: slideUp2; */
+  /* animation-duration: 300ms; */
+  /* animation-timing-function: linear; */
+}
 
 @keyframes slideUp {
   from {
@@ -126,6 +125,16 @@
     clip-path: inset(0vw 0vw var(--clip-height) 0vw);
   }
 }
+
+@keyframes slideUp2 {
+  from {
+    clip-path: inset(0vw 0vw 0vw 0);
+  }
+  to {
+    clip-path: inset(0vw 0vw 100% 0vw);
+  }
+}
+
 @keyframes slideIn {
   from {
     clip-path: inset(var(--clip-height) 0vw 0vw 0vw);

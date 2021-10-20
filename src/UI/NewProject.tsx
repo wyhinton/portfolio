@@ -35,7 +35,7 @@ const NewProject = ({
       style={
         show
           ? {
-              willChange: "transform",
+              willChange: "transform, opacity",
               animation: `slide-in-top ${
                 index * 0.2
               }s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,

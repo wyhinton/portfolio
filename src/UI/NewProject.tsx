@@ -4,10 +4,6 @@ import "../css/App.css";
 
 import React, { useState } from "react";
 
-import Caption from "./Caption";
-import Collapsible from "react-collapsible";
-import LinkIcon from "./LinkIcon";
-import ProjectAsset from "./ProjectAsset";
 import ProjectData from "../classes/ProjectData";
 import classNames from "classnames";
 
@@ -48,20 +44,14 @@ const NewProject = ({
         onClick(projectData);
       }}
     >
-      <ProjectTitle title={title} link={link} />
+      <ProjectTitle title={title} />
     </div>
   );
 };
 
 export default React.memo(NewProject);
 
-const ProjectTitle = ({
-  title,
-  link,
-}: {
-  title: string;
-  link: string;
-}): JSX.Element => {
+const ProjectTitle = ({ title }: { title: string }): JSX.Element => {
   return (
     <div className={"project-title"}>
       {title}

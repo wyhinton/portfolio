@@ -16,9 +16,7 @@
   --nav-text-size: 3.5vw;
   --font-color: white;
   --background-color: #121212;
-  /* --header-nav-size: clamp(var(--nav-text-size), 10vw); */
-  /* --header-nav-size: clamp(3em, calc(9 / 80 * 100vw), 4em); */
-  --header-nav-size: clamp(1.1rem, 1.7153rem + 1.6368vw, 5.5rem);
+  --header-nav-size: clamp(1.1rem, calc(1.7153rem + 1.6368vw), 5.5rem);
   --transition-time: 300ms;
   --clip-height: 7vw;
 }

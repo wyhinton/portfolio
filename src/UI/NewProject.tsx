@@ -52,10 +52,5 @@ const NewProject = ({
 export default React.memo(NewProject);
 
 const ProjectTitle = ({ title }: { title: string }): JSX.Element => {
-  return (
-    <div className={"project-title"}>
-      {title}
-      {/* {link !== "NA" ? <LinkIcon href={link}></LinkIcon> : <></>} */}
-    </div>
-  );
+  return <div className={"project-title"}>{title}</div>;
 };
